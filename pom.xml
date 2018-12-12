@@ -75,15 +75,15 @@
 	<distributionManagement>
                 <!-- Publish versioned releases here -->
                 <repository>
-                        <id>1</id>
-                        <name>Dépôt d’entreprise</name>
+                        <id>nexus</id>
+                        <name>maven-releases</name>
                         <url>http://localhost:8081/repository/maven-releases/</url>
                 </repository>
 
                 <!-- Publish snapshots here -->
                 <snapshotRepository>
-                      <id>1</id>
-                        <name>Dépôt d’entreprise</name>
+                      <id>nexus</id>
+                        <name>maven-snapshots</name>
                         <url>http://localhost:8081/repository/maven-snapshots/</url>
                 </snapshotRepository>
         </distributionManagement>
