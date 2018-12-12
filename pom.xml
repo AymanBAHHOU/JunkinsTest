@@ -78,18 +78,9 @@
 		</plugins>
 	</build>
 	<distributionManagement>
-                <!-- Publish versioned releases here -->
-                <repository>
-                        <id>nexus</id>
-                        <name>maven-releases</name>
-                        <url>http://localhost:8081/nexus/content/repositories/localrepository/</url>
-                </repository>
-
-                <!-- Publish snapshots here -->
-                <snapshotRepository>
-                      <id>nexus</id>
-                        <name>maven-snapshots</name>
-                        <url>http://localhost:8081/repository/maven-snapshots/</url>
-                </snapshotRepository>
-        </distributionManagement>
+<snapshotRepository>
+<id>snapshots</id>
+<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+</snapshotRepository>
+</distributionManagement>
 </project>
