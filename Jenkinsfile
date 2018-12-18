@@ -11,7 +11,7 @@ pipeline {
                
             }
         }
-        stage('souverture') {
+        stage('couverture') {
             steps {
                
                 bat 'mvn cobertura:cobertura site'
@@ -35,4 +35,4 @@ pipeline {
         }
         
     }
-}
+
