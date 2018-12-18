@@ -14,9 +14,23 @@ pipeline {
         stage('Test') {
             steps {
                
-                bat 'mvn cobertura:cobertura'
-                bat 'mvn clean site'
-                step([$class: 'CoberturaPublisher', coberturaReportFile: '**/target/site/cobertura/coverage.xml'])
+                bat 'mvn cobertura:cobertura site'
+              
+               post
+{
+success{
+ step([$class: 'CoberturaPublisher', 
+ autoUpdateHealth: false, 
+ autoUpdateStability: false, 
+ coberturaReportFile: '**/target/site/cobertura/coverage.xml',
+ failUnhealthy: false,
+ failUnstable: false, 
+ maxNumberOfBuilds: 0, 
+ onlyStable: false,
+ sourceEncoding: 'ASCII', 
+ zoomCoverageChart: false])
+}
+}
                
             }
         }
