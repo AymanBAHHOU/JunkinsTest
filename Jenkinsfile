@@ -15,7 +15,7 @@ pipeline {
             steps {
                 bat 'mvn test'
                 bat 'mvn cobertura:cobertura'
-                step([$class: 'CoberturaPublisher', coberturaReportFile: 'reports/coverage.xml'])
+                step([$class: 'CoberturaPublisher', coberturaReportFile: '**/target/site/cobertura/coverage.xml'])
                
             }
         }
