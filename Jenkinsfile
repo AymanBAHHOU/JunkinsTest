@@ -1,20 +1,25 @@
 pipeline {
     agent any
-
+    tools {
+     maven 'apache-maven-3.5.4'   
+     jdk 'jdk1.8.0_161'
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                bat 'mvn compiler:compile'
+               
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                bat 'mvn test'
+               
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                 bat 'mvn install'
             }
         }
     }
