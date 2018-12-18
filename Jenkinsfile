@@ -17,19 +17,10 @@ pipeline {
                 bat 'mvn cobertura:cobertura'
                  bat 'mvn clean site'
             }
-               post{
- success{
- step([$class: 'CoberturaPublisher', 
- autoUpdateHealth: false, 
- autoUpdateStability: false, 
- coberturaReportFile: '**/target/site/cobertura/coverage.xml',
- failUnhealthy: false,
- failUnstable: false, 
- maxNumberOfBuilds: 0, 
- onlyStable: false,
- sourceEncoding: 'ASCII', 
- zoomCoverageChart: false])
-}
+              post {
+        always {
+           
+            cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml', failNoReports: true
 }
                
             }
