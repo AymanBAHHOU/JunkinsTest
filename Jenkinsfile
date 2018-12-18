@@ -15,6 +15,7 @@ pipeline {
             steps {
                
                 bat 'mvn cobertura:cobertura'
+                 bat 'mvn clean site'
             }
                post{
  success{
