@@ -11,14 +11,13 @@ pipeline {
                
             }
         }
-        stage('Test') {
+        stage('souverture') {
             steps {
                
                 bat 'mvn cobertura:cobertura site'
-              
-               post
-{
-success{
+            }
+               post{
+ success{
  step([$class: 'CoberturaPublisher', 
  autoUpdateHealth: false, 
  autoUpdateStability: false, 
