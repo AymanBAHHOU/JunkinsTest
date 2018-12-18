@@ -5,26 +5,23 @@ pipeline {
      jdk 'jdk 1.8'
     }
     stages {
-        stage('Build') {
-            steps {
-                bat 'mvn compiler:compile'
-               
-            }
-        }
-        stage('couverture') {
-            steps {
-               
-                bat 'mvn cobertura:cobertura'
-                 bat 'mvn clean site'
-            }
-              post {
-        always {
-           
-            cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml', failNoReports: true
-}
-               
-            }
-        }
-        
+    stage('Build'){
+      steps {
+        echo 'Building ..'
+      }
     }
+    
+    stage('Test'){
+      steps {
+        echo 'Testing ..'
+      }
+    }
+    
+    stage('Deploy'){
+      steps {
+        echo 'Deploying ..'
+      }
+    }
+    
+  }  
 }
