@@ -34,10 +34,6 @@ success{
                
             }
         }
-        stage('Deploy') {
-            steps {
-                 bat 'mvn install'
-            }
-        }
+        
     }
 }
