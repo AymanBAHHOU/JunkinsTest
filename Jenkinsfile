@@ -14,7 +14,7 @@ pipeline {
         stage('couverture') {
             steps {
                
-                bat 'mvn cobertura:cobertura site'
+                bat 'mvn cobertura:cobertura'
             }
                post{
  success{
