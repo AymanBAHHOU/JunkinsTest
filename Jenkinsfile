@@ -13,8 +13,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'mvn test'
+               
                 bat 'mvn cobertura:cobertura'
+                bat 'mvn clean site'
                 step([$class: 'CoberturaPublisher', coberturaReportFile: '**/target/site/cobertura/coverage.xml'])
                
             }
