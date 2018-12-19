@@ -7,8 +7,13 @@ pipeline {
     stages {
     stage('Build'){
       steps {
-        echo 'Building ..'
+        bat 'mvn install'
       }
+        post{
+            success{
+                junit 'target/surfire-reports/**/*.xml'
+            }
+        }  
     }
     
     stage('Test'){
